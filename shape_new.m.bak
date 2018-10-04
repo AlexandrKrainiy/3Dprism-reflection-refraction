@@ -1,0 +1,238 @@
+clc;
+clear;
+close all;
+
+m1=1;                                                               
+m2=1.7; 
+%draw hexagon prism
+%centroid-center of each plane;
+%direct_vector-two direct vectors to decide plane.
+%Vertex-Vertexes of prism
+r=100;
+Vertex(:,2)=[-r/2,-r/2,-r,-r,r/2,r/2,-r/2,-r/2,r/2,r/2,r,r,0];
+Vertex(:,1)=[-sqrt(3)*r/2,-sqrt(3)*r/2,0,0,sqrt(3)*r/2,sqrt(3)*r/2,sqrt(3)*r/2,sqrt(3)*r/2,-sqrt(3)*r/2,-sqrt(3)*r/2,0,0,0];
+Vertex(:,3)=[-2*r,2*r,2*r,-2*r,-2*r,2*r,2*r,-2*r,-2*r,2*r,2*r,-2*r,r*3];
+vp=[Vertex(1:4,:);Vertex(1,:)];
+direct_vactor=zeros(13,3);
+direct_vactor(1,:)=vp(3,:)-vp(2,:);
+
+
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(1),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(5:8,:);Vertex(5,:)];
+direct_vactor(3,:)=vp(2,:)-vp(3,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(3),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(9:12,:);Vertex(9,:)];
+direct_vactor(5,:)=vp(2,:)-vp(3,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(5),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(3:4,:);Vertex(8:-1:7,:);Vertex(3,:)];
+direct_vactor(2,:)=vp(3,:)-vp(2,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(2),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(5:6,:);Vertex(11:12,:);Vertex(5,:)];
+direct_vactor(4,:)=vp(3,:)-vp(2,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(4),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(2,:);Vertex(3,:);Vertex(13,:);Vertex(2,:)];
+direct_vactor(8,:)=vp(2,:)-vp(1,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(8),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(3,:);Vertex(7,:);Vertex(13,:);Vertex(3,:)];
+direct_vactor(9,:)=vp(2,:)-vp(1,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(9),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(7,:);Vertex(6,:);Vertex(13,:);Vertex(7,:)];
+direct_vactor(10,:)=vp(2,:)-vp(1,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(10),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(6,:);Vertex(11,:);Vertex(13,:);Vertex(6,:)];
+direct_vactor(11,:)=vp(2,:)-vp(1,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(11),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(11,:);Vertex(10,:);Vertex(13,:);Vertex(11,:)];
+direct_vactor(12,:)=vp(2,:)-vp(1,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(12),'HorizontalAlignment','left','FontSize',6);
+hold on;
+
+vp=[Vertex(10,:);Vertex(2,:);Vertex(13,:);Vertex(10,:)];
+direct_vactor(13,:)=vp(2,:)-vp(1,:);
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(13),'HorizontalAlignment','left','FontSize',6);
+hold on;
+vp=[Vertex(1:2,:);Vertex(10:-1:9,:);Vertex(1,:)];
+direct_vactor(6,:)=vp(2,:)-vp(3,:);
+direct_vactor(7,:)=Vertex(6,:)-Vertex(7,:);
+
+fill3(vp(:,1),vp(:,2),vp(:,3),'g-')
+alpha(0.3)
+M1=mean(vp);
+ text(M1(1),M1(2),M1(3),num2str(6),'HorizontalAlignment','left','FontSize',6);
+ M1=[0,0 -r/2];
+ text(M1(1),M1(2),M1(3),num2str(7),'HorizontalAlignment','left','FontSize',6,'rotation',-90);
+hold on;
+xlabel('x axis')
+ylabel('y axis')
+zlabel('z axis')
+axis([-3*r-20 3*r+20 -3*r-20 3*r+20 -3*r-20 4*r+20]);
+grid on;
+drawnow
+hold on;
+% construct polyhedron.
+shp = alphaShape(Vertex,200);
+% normal vector for each plane;
+normal_vector=zeros(8,3);b=zeros(8,1);
+normal_vector(1,:)=[-1/2 -3^0.5/2 0];b(1)=normal_vector(1,:)*Vertex(1,:)';
+normal_vector(2,:)=[1/2 -3^0.5/2 0];b(2)=normal_vector(2,:)*Vertex(3,:)';
+normal_vector(3,:)=[1 0 0];b(3)=normal_vector(3,:)*Vertex(5,:)';
+normal_vector(4,:)=[1/2 3^0.5/2 0];b(4)=normal_vector(4,:)*Vertex(5,:)';
+normal_vector(5,:)=[-1/2 3^0.5/2 0];b(5)=normal_vector(5,:)*Vertex(9,:)';
+normal_vector(6,:)=[-1 0 0];b(6)=normal_vector(6,:)*Vertex(1,:)';
+normal_vector(7,:)=[0 0 -1];b(7)=normal_vector(7,:)*Vertex(1,:)';
+normal_vector(8,:)=[-sqrt(1/7) -sqrt(3/7) sqrt(3/7)];b(8)=normal_vector(8,:)*Vertex(2,:)';
+normal_vector(9,:)=[sqrt(1/7) -sqrt(3/7) sqrt(3/7)];b(9)=normal_vector(9,:)*Vertex(3,:)';
+normal_vector(10,:)=[2/sqrt(7) 0 sqrt(3/7)];b(10)=normal_vector(10,:)*Vertex(7,:)';
+normal_vector(11,:)=[sqrt(1/7) sqrt(3/7) sqrt(3/7)];b(11)=normal_vector(11,:)*Vertex(6,:)';
+normal_vector(12,:)=[-sqrt(1/7) sqrt(3/7) sqrt(3/7)];b(12)=normal_vector(12,:)*Vertex(11,:)';
+normal_vector(13,:)=[-2/sqrt(7) 0 sqrt(3/7)];b(13)=normal_vector(13,:)*Vertex(10,:)';
+% the number of incidence rays
+num_rays=10;
+% incidence angle
+theta_i=60;
+theta_j=30;
+% incidence plane;
+pnum=7;
+% incidence direction
+n=zeros(1,3);
+n(1,3)=sind(theta_i);
+n(1,1)=cosd(theta_i)*cosd(theta_j);
+n(1,2)=cosd(theta_i)*sind(theta_j);
+% create points for incidence rays
+%p=create_points(pnum,r,firstpoint(pnum,:),num_rays,direct_vactor(pnum,:));
+data=[];
+num=0;
+span=30;
+% implement of snells law
+while(num<num_rays)
+    p=[];
+    for x=-20*r:span:20*r
+        for y=-20*r:span:20*r
+            p=[p;[x,y,-r*4]];
+        end
+    end
+    for i=1:size(p,1)
+        %p0=p(i,:)-n.*50;
+        %p0=(rand(1,3)-ones(1,3).*0.5)*1000;
+        p0=p(i,:);
+        while(inShape(shp,p0))
+            p0=(rand(1,3)-ones(1,3).*0.5)*1000;
+        end
+    %p0=[100,0,-210]
+        [p1,p2,pnum]=find_wall(p0, n, normal_vector,b,shp);
+        if(~isempty(p1))
+            v=[p2;p1];
+            num=num+1;
+            plot3(v(:,1),v(:,2),v(:,3),'b-');
+            %text(p(i,1),p(i,1),p(i,1),num2str(pnum),'HorizontalAlignment','left','FontSize',8);
+            hold on;
+            % refrection and reflection points and direction.
+            [Pp,Pn, wallnum,BF]=refraction(p1,n,m1,m2,pnum,normal_vector,b,shp);
+            theta=[];
+            for k=1:length(Pn)
+                len=norm(Pn(k,:));
+                tp=zeros(1,2);
+                if(BF(k)==1)
+                    theta=[theta;tp];
+                   
+                    continue;
+                end
+                if(k==1)
+                    tp1=Pn(k,:)*normal_vector(wallnum(k),:)';
+                    tp0=-tp1.*normal_vector(wallnum(k),:)+Pn(k,:);
+                    dv=direct_vactor(wallnum(k),:);
+                    dv=dv./norm(dv);
+                    tp01=tp0*dv';
+                    tplen=sqrt(tp0*tp0');
+                    tp2=tp01/tplen;
+                    tp2=acos(tp2)*180/pi;
+                    plen=sqrt(Pn(k,:)*Pn(k,:)');
+                    tp1=abs(tp1/plen);
+                    tp1=acos(tp1)*180/pi;
+                    data1.incidnece_angle=[tp1,tp2];
+                else
+                     tp1=Pn(k,:)*normal_vector(wallnum(k-1),:)';
+                    tp0=-tp1.*normal_vector(wallnum(k-1),:)+Pn(k,:);
+                    dv=direct_vactor(wallnum(k-1),:);
+                    dv=dv./norm(dv);
+                    tp01=tp0*dv';
+                    tplen=sqrt(tp0*tp0');
+                    tp2=tp01/tplen;
+                    tp2=acos(tp2)*180/pi;
+                    plen=sqrt(Pn(k,:)*Pn(k,:)');
+                    tp1=abs(tp1/plen);
+                    tp1=acos(tp1)*180/pi;
+                    if(k==2)
+                    data1.refraction_angle=[tp1,tp2];
+                    else
+                        tp=[tp1,tp2];
+                        theta=[theta;tp];
+                    end
+               end
+               
+            end
+           data1.theta=theta;
+           data1.wallnum=wallnum;
+           data=[data,data1];
+           
+            if(num==num_rays)
+                break;
+            end
+        end
+    end
+    if(num<num_rays)
+        span=span-0.5;
+    end
+end
+save('Data.mat','data');
